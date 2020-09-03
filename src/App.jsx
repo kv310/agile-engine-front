@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 import {Accordion, Card, Button} from 'react-bootstrap';
 
 
@@ -28,7 +29,12 @@ function App() {
                         return (
                             <Card key={transaction.id}>
                                 <Card.Header>
-                                    <Accordion.Toggle as={Button} variant="link" eventKey={transaction.id}>
+                                    <Accordion.Toggle 
+                                        as={Button} 
+                                        variant="link" 
+                                        eventKey={transaction.id}
+                                        className={transaction.type == 'credit' ? 'credit' : 'debit'}
+                                    >
                                         {transaction.type}: USD {transaction.amount}
                                    </Accordion.Toggle>
                                 </Card.Header>
