@@ -1,0 +1,16 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.credit, .credit:hover {
+    color: green;
+}
+
+.debit, .debit:hover {
+    color: red;
+}
