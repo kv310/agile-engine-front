@@ -4,16 +4,18 @@ import './App.css';
 import {Accordion, Card, Button} from 'react-bootstrap';
 
 
-function App() {
+function App() { // I prefer to use hooks and state over classes
     const [balance, setBalance] = useState(0);
     const [transactions, setTransactions] = useState([]);
 
     useEffect(() => {
         (async () => {
+            // Get the balance from the api
             let bal = await fetch("http://localhost:3000");
             bal = await bal.json();
             setBalance(bal);
         
+            // Get the transactions from the api
             let trans = await fetch("http://localhost:3000/transactions");
             trans = await trans.json();
             setTransactions(trans);
@@ -27,6 +29,8 @@ function App() {
                 <Accordion>
                     { transactions.map(transaction => {
                         return (
+                            // Here I should make a new component
+                            // but for sake of simplicity I put all here
                             <Card key={transaction.id}>
                                 <Card.Header>
                                     <Accordion.Toggle 
